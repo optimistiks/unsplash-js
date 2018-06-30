@@ -12,11 +12,12 @@ export default function search(): Object {
   };
 }
 
-function searcher(url, keyword = "", page = 1, per_page = 10) {
+function searcher(url, keyword = "", page = 1, per_page = 10, opts = {}) {
   const query = {
     query: keyword,
     page,
-    per_page
+    per_page,
+    ...opts
   };
 
   return this.request({
