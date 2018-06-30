@@ -19,13 +19,17 @@ export default function photos(): Object {
       });
     },
 
-    listCuratedPhotos: (page = 1, perPage = 10, orderBy = "latest")  => {
+    listCuratedPhotos: (page = 1, perPage = 10, orderBy = "latest", orientation = null)  => {
       const url = "/photos/curated";
       const query = {
         page,
         per_page: perPage,
         order_by: orderBy
       };
+      
+      if (orientation) { 
+        query.orientation = orientation;
+      }
 
       return this.request({
         url,
